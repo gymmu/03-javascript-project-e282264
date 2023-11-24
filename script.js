@@ -5,7 +5,7 @@ export function aufgabe01(args) {
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if(currentElement === "e" || currentElement === "E") {
-      
+
     }
     else
     {result.push(currentElement)}
@@ -26,9 +26,13 @@ export function aufgabe02(args) {
 export function aufgabe03(args) {
   const input = args
   const result = []
+  let count = 0
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    
+     if(currentElement === "e" || currentElement === "E") {
+      count++
+    }
+
   }
-  return result.join("")
+  return count
 }
