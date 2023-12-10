@@ -40,6 +40,21 @@ export function aufgabe03(args) {
   //gibt die gezählte Zahl heraus
 }
 
+export function aufgabe04(args) {
+  let input = args.replace(/[^a-zA-Z0-9 ]/g, "");
+  let count = 1;
+  if (input.lastIndexOf(' ') == input.length - 1) count--
+  if (input[0] == " ") count--
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i];
+
+    if (currentElement === " " && input[i-1] !== " ") {
+      count++
+    }
+  }
+  return count;
+}
 
 
 export function aufgabe05(args) {
@@ -56,8 +71,36 @@ export function aufgabe05(args) {
     }
 }
   return false
-  //falls dies nicht zutrifft, wird falsch zurückgegeben
+  //Falls kein Grossbuchtabe vorkommt, wird falsch zurückgegeben
 }
+
+export function aufgabe06(args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    // gib mit edn ascii code von currentElement
+    const ascii = currentElement.charCodeAt(0)
+    if(ascii > 47 && ascii < 58){
+      // der ascii code ist zwischen 0 und 9
+      // mache nichts
+    } else if (ascii > 64 && ascii < 91){
+      // der ascii code ist zwischen A und Z
+      // mache nichts
+    } else if (ascii > 96 && ascii < 123){
+      // der ascii code ist zwischen a und z
+      // mache nichts
+    } else if (ascii === 32){
+      // der ascii code ist ein Leerzeichen
+      // mache nichts
+    } else {
+      //Falls ein Sonderzeichen vorkommt, wird wahr zurückgegeben
+      return true
+    }
+  }
+  return false
+}
+
+
 
 export function aufgabe09 (args) {
   const input = args
@@ -68,7 +111,7 @@ export function aufgabe09 (args) {
 }
   if(countLetter === 6) {
   return true
-}//gibt wahr an wenn es 6 Buchstaben im Text hat
+}//gibt wahr zurück wenn es 6 Buchstaben im Text hat
   return false
 }
-//gibt falsch an wenn es nicht 6 Buchstaben im Text hat
+//gibt falsch zurück wenn es nicht 6 Buchstaben im Text hat
