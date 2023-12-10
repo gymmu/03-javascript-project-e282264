@@ -42,15 +42,18 @@ export function aufgabe03(args) {
 
 export function aufgabe04(args) {
   let input = args.replace(/[^a-zA-Z0-9 ]/g, "");
+  //Entfernt alle Sonderzeichen
   let count = 1;
   if (input.lastIndexOf(' ') == input.length - 1) count--
+  //falls zwei Leerzeichen vorhanden sind, lasse, statt 2, 1 zurückgeben
   if (input[0] == " ") count--
-
+//falls kein Wort vorhanden ist, lasse, statt 1, 0 zurückgeben
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i];
 
     if (currentElement === " " && input[i-1] !== " ") {
       count++
+      //gibt die Anzahl der Leerzeichen zurück
     }
   }
   return count;
@@ -78,7 +81,6 @@ export function aufgabe06(args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // gib mit edn ascii code von currentElement
     const ascii = currentElement.charCodeAt(0)
     if(ascii > 47 && ascii < 58){
       // der ascii code ist zwischen 0 und 9
@@ -101,6 +103,22 @@ export function aufgabe06(args) {
 }
 
 
+export function aufgabe08(args) {
+  const input = args        
+  const result = []                     
+  for (let i = 0; i < input.length; i++) {      
+    const currentElement = input[i]        
+    if (currentElement === "e") {   
+      result.push(3)
+      //ersetze e durch 3                                                           
+    } else {                                                 
+      result.push(currentElement) 
+      //mache nichts, falls kein e vorkommt                         
+    }
+  }
+  return result.join("")                                        
+}
+
 
 export function aufgabe09 (args) {
   const input = args
@@ -113,5 +131,13 @@ export function aufgabe09 (args) {
   return true
 }//gibt wahr zurück wenn es 6 Buchstaben im Text hat
   return false
-}
 //gibt falsch zurück wenn es nicht 6 Buchstaben im Text hat
+}
+
+export function aufgabe11 (args) {
+  const input = args
+  if(input.length !== 1) return null
+  //gibt null zurück, wenn es nicht 1 Zeichen im Text hat
+  return input[0].charCodeAt(0)
+  //gibt den ascii code des Zeichens im Text zurück
+}
