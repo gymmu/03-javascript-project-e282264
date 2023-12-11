@@ -8,7 +8,7 @@ export function aufgabe01(args) {
 //zählt wie viele E's oder e's es im Text hat
     }
     else
-    {result.push(currentElement)}
+    {result.push(currentElement)}//mache nichts, falls kein E oder e vorkommt
   }
   return result.join("")
 }
@@ -83,17 +83,17 @@ export function aufgabe06(args) {
     const currentElement = input[i]
     const ascii = currentElement.charCodeAt(0)
     if(ascii > 47 && ascii < 58){
-      // der ascii code ist zwischen 0 und 9
-      // mache nichts
+      //der ascii code ist zwischen 0 und 9
+      //mache nichts
     } else if (ascii > 64 && ascii < 91){
       // der ascii code ist zwischen A und Z
       // mache nichts
     } else if (ascii > 96 && ascii < 123){
-      // der ascii code ist zwischen a und z
-      // mache nichts
+      //der ascii code ist zwischen a und z
+      //mache nichts
     } else if (ascii === 32){
-      // der ascii code ist ein Leerzeichen
-      // mache nichts
+      //der ascii code ist ein Leerzeichen
+      //mache nichts
     } else {
       //Falls ein Sonderzeichen vorkommt, wird wahr zurückgegeben
       return true
@@ -102,6 +102,21 @@ export function aufgabe06(args) {
   return false
 }
 
+export function aufgabe07 (args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if(currentElement === "u" || input[0] === "U") {
+      if(input[i +1] === "n") {
+        if(input[i + 2] === "d") {
+          return true
+        }//falls die Buchstaben u,n,d nacheinander vorkommen, wird wahr zurückgegeben
+      }
+    }
+  }
+  return false
+}//trifft dies nicht zu, wird falsch zurückgegeben
 
 export function aufgabe08(args) {
   const input = args        
@@ -131,7 +146,28 @@ export function aufgabe09 (args) {
   return true
 }//gibt wahr zurück wenn es 6 Buchstaben im Text hat
   return false
-//gibt falsch zurück wenn es nicht 6 Buchstaben im Text hat
+//gibt falsch zurück wenn dies nicht zutrifft
+}
+
+export function aufgabe10 (args) {
+  const input = args
+  
+  if(input.length !== 7) return false
+  if(input[0] !== "#") return false
+  for (let i = 1; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+
+    if(48 <= ascii && ascii <=57) {
+      //Ist eine Ziffer
+    } else if (65 <= ascii && ascii <= 70) {
+      //Ist A-F
+    } else {
+      return false
+    }
+  }
+
+  return true
 }
 
 export function aufgabe11 (args) {
