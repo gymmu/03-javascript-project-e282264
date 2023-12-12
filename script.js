@@ -150,24 +150,25 @@ export function aufgabe09 (args) {
 }
 
 export function aufgabe10 (args) {
-  const input = args
+  const input = args 
   
-  if(input.length !== 7) return false
-  if(input[0] !== "#") return false
+  if(input.length !== 7) return false //weil Hexcodes 7 Zeichen lang sein müssen, können wir hier abbrechen
+  if(input[0] !== "#") return false //weil Hexcodes mit # beginnen, können wir hier abbrechen
   for (let i = 1; i < input.length; i++) {
     const currentElement = input[i]
     const ascii = currentElement.charCodeAt(0)
-
-    if(48 <= ascii && ascii <=57) {
-      //Ist eine Ziffer
+    //liest die Zeichen als ascii code
+    if(48 <= ascii && ascii <=57) { 
+       //der ascii code ist zwischen 0 und 9
     } else if (65 <= ascii && ascii <= 70) {
-      //Ist A-F
+       //der ascii code ist zwischen A und F
     } else {
       return false
+       //gibt falsch zurück, falls nicht nur 0-9 oder A-F vorkommen
     }
   }
 
-  return true
+  return true //falls alles stimmt, wird wahr zurückgegeben
 }
 
 export function aufgabe11 (args) {
@@ -177,3 +178,5 @@ export function aufgabe11 (args) {
   return input[0].charCodeAt(0)
   //gibt den ascii code des Zeichens im Text zurück
 }
+
+
