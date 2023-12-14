@@ -194,7 +194,7 @@ export function aufgabe13 (args) {
   for (let i = input.length-1; i >= 0; i--) {
     const currentElement = input[i]
     if (currentElement === "e")
-    //lokalisiert die Position des ersten e
+    //lokalisiert die Position des ersten es
     return i
   }
   return -1 
@@ -217,3 +217,36 @@ export function aufgabe14 (args) {
   return -1} //falls dies nicht zutrifft soll -1 zurückgegeben werden
 }
 
+export function aufgabe15 (args) {
+  const input = args
+  const result = []
+  if (input.lastIndexOf(' ') == input.length - 1) 
+  {for (let i = 0; i < input.length - 1; i++) {
+        const currentElement = input[i]
+        result.push(currentElement)}} 
+        else { 
+    for (let i = 0; i < input.length; i++) {
+      const currentElement = input[i]
+      if (currentElement !== " ") {
+        result.push(currentElement) 
+      } else {
+        return result.join("")}}}
+  return result.join("")
+  }
+
+  export function aufgabe16 (args) {
+    const input = args
+    const result = []
+    let count = 0
+    for (let i = 0; i < input.length; i++) {
+      const currentElement = input[i]
+    if (count === 0 && currentElement === "$" && i+2 > input.length) {
+    result.push("")
+    count++}
+    else if (currentElement === "$" && count === 0) {
+    result.push(",")
+    count++}
+    else {
+      result.push(currentElement)}}
+  return result.join("")
+}
