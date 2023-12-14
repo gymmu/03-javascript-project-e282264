@@ -134,15 +134,14 @@ export function aufgabe08(args) {
   return result.join("")                                        
 }
 
-
 export function aufgabe09 (args) {
   const input = args
-  let countLetter = 0
+  let Letters = 0
   for (let i = 0; i < input.length; i++) {
-    countLetter++
+    Letters++
   //zählt die Buchstaben
 }
-  if(countLetter === 6) {
+  if(Letters === 6) {
   return true
 }//gibt wahr zurück wenn es 6 Buchstaben im Text hat
   return false
@@ -179,4 +178,42 @@ export function aufgabe11 (args) {
   //gibt den ascii code des Zeichens im Text zurück
 }
 
+export function aufgabe12 (args) {
+  const input = args
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement == "e") {
+      return i}//erkennt die Position des ersten e im Text um das dann herauszugeben
+  }
+  return -1 
+}//falls kein e vorhanden ist, wird -1 zurückgegeben
+
+export function aufgabe13 (args) {
+  const input = args
+  const result = []
+  for (let i = input.length-1; i >= 0; i--) {
+    const currentElement = input[i]
+    if (currentElement === "e")
+    //lokalisiert die Position des ersten e
+    return i
+  }
+  return -1 
+  //falls kein e vorhanden ist, wird -1 zurückgegeben
+}
+
+export function aufgabe14 (args) {
+  const input = args;
+  let count = 0
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i];
+    if (currentElement === "e") { //erkennt die Position der oder des es im Text
+      count++}
+    if (count === 3) { 
+      return i}}//soll die Position des 3. e's im Text zurückgeben
+  if (count > 2) { 
+    if (count === input.length) {
+      return 2}} //wenn die Anzahl an E's der Eingabe entspricht, soll 2 zurückgegeben werden
+      else {
+  return -1} //falls dies nicht zutrifft soll -1 zurückgegeben werden
+}
 
