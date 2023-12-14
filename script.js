@@ -250,3 +250,43 @@ export function aufgabe15 (args) {
       result.push(currentElement)}}
   return result.join("")
 }
+
+export function aufgabe18 (args) {
+  const input = args
+  const Name = []
+  const age = []
+  let sortedtext = true
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    
+    if (currentElement == " " && sortedtext == true) {
+      sortedtext = false
+    } 
+
+else {
+      if (sortedtext == true) {
+        Name.push(currentElement)
+      }
+      else if (sortedtext == false) {
+        age.push(currentElement)
+      }
+    }
+  }
+  if (Name.join("") !== "" && age.join("") !== "") return "Sie heissen " + Name.join("") + " und sind " + age.join("") + " Jahre alt"
+  if (Name.join("") == "" && age.join("") !== "") return "Sie heissen" + Name.join("") + " und sind " + age.join("") + " Jahre alt"
+  if (Name.join("") !== "" && age.join("") == "") return "Sie heissen " + Name.join("") + " und sind " + age.join("") + "Jahre alt"
+  if (Name.join("") == "" && age.join("") == "") return "Sie heissen" + Name.join("") + " und sind " + age.join("") + "Jahre alt"
+}
+
+export function aufgabe20 (args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if(currentElement == "." && input[i+1] !== " ") return false
+    else if(currentElement == "." && input[i+1] == " ") return true
+  }
+  return result.join("")
+}
+
