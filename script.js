@@ -304,7 +304,7 @@ export function aufgabe21 (args) {
   const input = args
   const result = []
 for (let i = input.length; i > -1; i--) {
-  const currentElement = input[i]
+  const currentElement = input[i] //alle Elemente in umgekehrter Reihenfolge
   result.push(currentElement)}
   return result.join("")}
 
