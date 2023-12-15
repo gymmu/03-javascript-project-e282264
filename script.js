@@ -240,11 +240,11 @@ export function aufgabe15 (args) {
     let count = 0
     for (let i = 0; i < input.length; i++) {
       const currentElement = input[i]
-    if (count === 0 && currentElement === "$" && i+2 > input.length) {
-    result.push("")
+    if (count === 0 && currentElement === "$" && i+2 > input.length) { 
+    result.push("") 
     count++}
     else if (currentElement === "$" && count === 0) {
-    result.push(",")
+    result.push(",") //wenn das aktuelle Element ein $ ist, soll es durch ein Komma ersetzt werden
     count++}
     else {
       result.push(currentElement)}}
