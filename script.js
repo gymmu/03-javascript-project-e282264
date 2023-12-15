@@ -306,6 +306,23 @@ export function aufgabe21 (args) {
 for (let i = input.length; i > -1; i--) {
   const currentElement = input[i] //alle Elemente in umgekehrter Reihenfolge
   result.push(currentElement)}
+  return result.join("")
+}
+
+export function aufgabe23 (args) {
+  const input = args
+  const result = []
+  let firstElement = input[0]
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (i === 0) {
+      result.push(currentElement)} //hängt das erste Element vorne zusätzlich an
+    if (i === input.length - 1) {
+      result.push(currentElement)
+      result.push(firstElement)} //hängt das erstes Element hinten an
+    else {
+      result.push(currentElement)}
+  }
   return result.join("")}
 
 export function aufgabe27 (args) {
