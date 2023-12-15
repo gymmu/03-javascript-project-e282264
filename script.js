@@ -388,11 +388,11 @@ export function bubbleSort(args) {
   for (let i = 0; i < list.length - 1; i++) {
     const currentElement = list[i]
     const nextElement = list[i + 1]
-    if (nextElement.charCodeAt(0) < currentElement.charCodeAt(0)) {
+    if (nextElement.charCodeAt(0) < currentElement.charCodeAt(0)) { //wenn das naechste Element kleiner als das aktuelle ist sollen die Elemente vertauscht werden
       const temporary = list[i + 1]
       list[i + 1] = list[i]
       list[i] = temporary
-      i = -1 }}
+      i = -1 }} //wenn das nächste Element kleiner als das aktuelle ist soll der Schleifendurchgang erneut beginnen
   const result = list.join("")
   console.log(result)
   return result
