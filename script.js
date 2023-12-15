@@ -223,11 +223,11 @@ export function aufgabe15 (args) {
   if (input.lastIndexOf(' ') == input.length - 1) 
   {for (let i = 0; i < input.length - 1; i++) {
         const currentElement = input[i]
-        result.push(currentElement)}} 
+        result.push(currentElement)}} //wenn das letzte Element ein Leerzeichen ist, soll alles bis zum Leerzeichen zurückgegeben werden
         else { 
-    for (let i = 0; i < input.length; i++) {
+    for (let i = 0; i < input.length; i++) { 
       const currentElement = input[i]
-      if (currentElement !== " ") {
+      if (currentElement !== " ") { //wenn das aktuelle Element nicht ein Leerzeichen ist, soll das Element in das Array gepusht werden
         result.push(currentElement) 
       } else {
         return result.join("")}}}
@@ -249,34 +249,44 @@ export function aufgabe15 (args) {
     else {
       result.push(currentElement)}}
   return result.join("")
-}
+  } 
 
-export function aufgabe18 (args) {
-  const input = args
-  const Name = []
-  const age = []
-  let sortedtext = true
-
-  for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
-    
-    if (currentElement == " " && sortedtext == true) {
-      sortedtext = false
-    } 
-
-else {
-      if (sortedtext == true) {
-        Name.push(currentElement)
-      }
-      else if (sortedtext == false) {
-        age.push(currentElement)
+  export function aufgabe18 (args) {
+    const input = args
+    const inputName = []
+    const inputAge = []
+    let readText = true
+    for (let i = 0; i < input.length; i++) {
+      const currentElement = input[i]
+      if (currentElement === " " && readText !== false) { 
+        readText = false // Wenn ein Leerzeichen gefunden wird und wir noch Text lesen, wechseln wir zum Alter
+      } else {
+        if (readText === true) {
+          inputName.push(currentElement)
+        }
+        else if (readText === false) {
+          inputAge.push(currentElement)
+          // Wenn wir das Alter lesen, fügen wir das aktuelle Element zum inputAge Array hinzu
+        }
       }
     }
+    if (inputName.join("") !== "" && inputAge.join("") !== "") return "Sie heissen " + inputName.join("") + " und sind " + inputAge.join("") + " Jahre alt"
+    if (inputName.join("") == "" && inputAge.join("") !== "") return "Sie heissen" + inputName.join("") + " und sind " + inputAge.join("") + " Jahre alt"
+    if (inputName.join("") !== "" && inputAge.join("") == "") return "Sie heissen " + inputName.join("") + " und sind " + inputAge.join("") + "Jahre alt"
+    if (inputName.join("") == "" && inputAge.join("") == "") return "Sie heissen" + inputName.join("") + " und sind " + inputAge.join("") + "Jahre alt"
+    // Überprüft die Werte der input Name und input Age Arrays und gibt jeweilige Sätze zurück
   }
-  if (Name.join("") !== "" && age.join("") !== "") return "Sie heissen " + Name.join("") + " und sind " + age.join("") + " Jahre alt"
-  if (Name.join("") == "" && age.join("") !== "") return "Sie heissen" + Name.join("") + " und sind " + age.join("") + " Jahre alt"
-  if (Name.join("") !== "" && age.join("") == "") return "Sie heissen " + Name.join("") + " und sind " + age.join("") + "Jahre alt"
-  if (Name.join("") == "" && age.join("") == "") return "Sie heissen" + Name.join("") + " und sind " + age.join("") + "Jahre alt"
+    
+
+export function aufgabe19 (args) {
+  const input = args
+  const result = [] 
+for (let i = 0; i < input.length; i++) {
+  const currentElement = input[i]
+  result.push(currentElement)
+  result.push(currentElement)
+} //pusht 2 mal um die Eingabe zu verdoppeln
+ return result.join("")
 }
 
 export function aufgabe20 (args) {
@@ -290,6 +300,14 @@ export function aufgabe20 (args) {
   return result.join("")
 }
 
+export function aufgabe21 (args) {
+  const input = args
+  const result = []
+for (let i = input.length; i > -1; i--) {
+  const currentElement = input[i]
+  result.push(currentElement)}
+  return result.join("")}
+
 export function aufgabe27 (args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
@@ -297,4 +315,20 @@ export function aufgabe27 (args) {
     if (input.length == 0) return false
     if (47 >= currentElement || currentElement >= 58) return false} //alle ascii codes die nicht zwischen 47 und 58 liegen sind keine Zahlen
 return true
+}
+
+export function bubbleSort(args) {
+  const input = args
+  const list = input.split("") 
+  for (let i = 0; i < list.length - 1; i++) {
+    const currentElement = list[i]
+    const nextElement = list[i + 1]
+    if (nextElement.charCodeAt(0) < currentElement.charCodeAt(0)) {
+      const temporary = list[i + 1]
+      list[i + 1] = list[i]
+      list[i] = temporary
+      i = -1 }}
+  const result = list.join("")
+  console.log(result)
+  return result
 }
