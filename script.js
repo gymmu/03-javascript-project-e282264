@@ -285,7 +285,7 @@ export function aufgabe20 (args) {
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if(currentElement == "." && input[i+1] !== " ") return false
-    else if(currentElement == "." && input[i+1] == " ") return true
+    else if(currentElement == "." && input[i+1] == " ") return true //überprüfen ob nach dem Punkt ein Leerzeichen vorliegt
   }
   return result.join("")
 }
