@@ -325,6 +325,54 @@ export function aufgabe23 (args) {
   }
   return result.join("")}
 
+  export function aufgabe24 (args) {
+    const input = args
+    const result = []
+  if (input.length === 1) return input //wenn die Anzahl der Elemente 1 ist soll nur das Element zurückgegeben werden
+  const firstElement = input[0]
+  const lastElement = input[input.length - 1]
+    result.push(lastElement) //hängt das letzte Element vorne an
+    for (let i = 1; i < input.length - 1; i++) { //
+      const currentElement = input[i]
+      result.push(currentElement)}
+    result.push(firstElement) //hängt das erste Element hinten an
+    return result.join("")
+  }
+
+  export function aufgabe25 (args) {
+    const input = args
+    const result = []
+    if(input.length <= 1) { //wenn die Anzahl der Elemente 1 oder weniger ist
+      return ""} 
+    if(input.length % 2 === 0) { //wenn die Anzahl der Elemente gerade ist
+     let delElement1 = input.length / 2 - 1
+     let delElement2 = input.length / 2
+     for (let i = 0; i < input.length; i++) {
+      const currentElement = input[i]
+      if(currentElement === input[delElement1] || currentElement === input[delElement2]) {
+      }else {
+        result.push(currentElement)}}} 
+    else {
+      //Math.floor rundet Zahlen mit Kommma ab
+      let delElement1 = Math.floor(input.length / 2)
+      for (let i = 0; i < input.length; i++) {
+        const currentElement = input[i]
+        if(currentElement === input[delElement1]) {
+      } //wenn das aktuelle Element das zu löschende ist, soll das Element nicht in das Array gepusht werden
+      else {
+        result.push(currentElement)}}}
+    return result.join("")
+  }
+
+  export function aufgabe26 (args) {
+    let input = args
+    const result = []
+    let splitInput = input.split("") //spaltet das Input in ein Array
+    let sortedInput = splitInput.sort() //sortiert das Array
+    input = sortedInput.join("")
+    return input
+  }  
+
 export function aufgabe27 (args) {
   const input = args
   for (let i = 0; i < input.length; i++) {
